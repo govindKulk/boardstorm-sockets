@@ -13,7 +13,7 @@ const httpServer = createServer(app); // Pass the Express app
 // Attach Socket.io to the same server
 const io = new Server(httpServer, {
     cors: {
-        origin: ["https://boardstorm.vercel.app/", "http://localhost:3000/"],
+        origin: ["https://boardstorm.vercel.app", "http://localhost:3000"],
         methods: ["GET", "POST"],
         credentials: true, // Ensure cookies are sent if needed
     },
