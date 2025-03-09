@@ -3,6 +3,14 @@ import { BoardRoom } from "./GameRoom";
 import cors from 'cors'
 const app = express();
 
+
+app.use(cors({
+  origin: ["https://boardstorm.vercel.app/", "http://localhost:3000/"],
+  methods: ["GET", "POST"],
+  credentials: true
+
+}))
+
 // Middleware
 app.use(express.json());
 
@@ -13,12 +21,7 @@ app.get("/", (req, res) => {
 
 const boardRoom = BoardRoom.getInstance();
 
-app.use(cors({
-  origin: ["https://boardstorm.vercel.app/", "http://localhost:3000/"],
-  methods: ["GET", "POST"],
-  credentials: true
 
-}))
 
 app.get('/rooms', (req,res) => {
   const rooms = boardRoom.getRooms();
